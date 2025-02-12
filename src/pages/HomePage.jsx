@@ -31,6 +31,13 @@ const productRow = [
     src: "https://spistorage.sgp1.cdn.digitaloceanspaces.com/public/uploads/all/lERMS9ZLvgXbkxFzsuyw5xTA2uNkYoTHnyC21Jvc.jpg",
     stock: 7,
   },
+  {
+    id: 5,
+    name: "Kaos Sage Green",
+    price: 110000,
+    src: "https://images.tokopedia.net/img/cache/700/VqbcmM/2022/6/11/9719ea79-1107-487d-8b6d-bb3843b42faa.jpg",
+    stock: 9,
+  },
 ];
 
 const HomePage = () => {
