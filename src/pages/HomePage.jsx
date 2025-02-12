@@ -38,6 +38,13 @@ const productRow = [
     src: "https://images.tokopedia.net/img/cache/700/VqbcmM/2022/6/11/9719ea79-1107-487d-8b6d-bb3843b42faa.jpg",
     stock: 9,
   },
+  {
+    id: 6,
+    name: "Flanel Hitam",
+    price: 120000,
+    src: "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2022/7/26/ee1b59ad-25d8-4a09-9aba-4cceb40db3af.jpg",
+    stock: 3,
+  },
 ];
 
 const HomePage = () => {
