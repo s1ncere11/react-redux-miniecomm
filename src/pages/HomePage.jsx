@@ -45,6 +45,13 @@ const productRow = [
     src: "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2022/7/26/ee1b59ad-25d8-4a09-9aba-4cceb40db3af.jpg",
     stock: 3,
   },
+  {
+    id: 7,
+    name: "Topi Bucket Hat",
+    price: 50000,
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYO_v8-6DnSHNr9IyC9fJqglCW3o7Kig2eMg&s",
+    stock: 5,
+  },
 ];
 
 const HomePage = () => {
