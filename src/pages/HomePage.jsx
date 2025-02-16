@@ -68,7 +68,6 @@ const HomePage = () => {
   });
   return (
     <>
-      <Header />
       <main className="min-h-[84vh] max-w-screen-xl mx-auto px-4 mt-32">
         <div className="flex flex-col items-center max-w-3xl pb-20 mx-auto text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-500 sm:text-6xl">
@@ -81,7 +80,6 @@ const HomePage = () => {
         </div>
         <div className="grid grid-cols-4 gap-5">{products}</div>
       </main>
-      <Footer />
     </>
   );
 };
