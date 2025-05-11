@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { IoIosRemove, IoIosAdd } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export const ProductCard = (props) => {
-  const { name, price, src, stock } = props;
+  const { name, price, src, stock, id } = props;
   const clickAddToCart = () => {
     if (quantity > 0) {
       alert(`Berhasil menambah ke keranjang! (${quantity} ${name})`);
@@ -27,16 +28,35 @@ export const ProductCard = (props) => {
     setQuantity(quantity - 1);
   };
 
+  // KETIKA MOUNT ATAU PERTAMA KALI KE TRIGGER
+  // useEffect(() => {
+  //   alert("component did mount");
+  // }, []);
+
+  // // UPDATE DIBARENGIN DENGAN MOUNT JUGA: value mana yang mau nge trigger lifcycle ketika di eksekusi, dalam case ini quantity di button
+  // useEffect(() => {
+  //   alert("component did update");
+  // }, [quantity]);
+
+  // useEffect(() => {
+  //   // unmount atau ketika component di destroy(tidak dipakai lagi), dalam case ini ketika pindah page
+  //   return () => {
+  //     alert("component did unmount");
+  //   };
+  // }, []);
+
   return (
     <div className="flex flex-col gap-4 p-4 border rounded-md md:max-w-96">
-      <div className="w-full overflow-hidden aspect-square">
-        <img src={src} alt="" />
-      </div>
-      <div>
-        <p className="font-bold text-md">{name}</p>
-        <p className="text-xl">Rp. {price.toLocaleString("id-ID")}</p>
-        <p className="text-muted-foreground">Stok : {stock}</p>
-      </div>
+      <Link to={"/product/" + id}>
+        <div className="w-full overflow-hidden aspect-square">
+          <img src={src} alt="" />
+        </div>
+        <div>
+          <p className="font-bold text-md">{name}</p>
+          <p className="text-xl">Rp. {price.toLocaleString("id-ID")}</p>
+          <p className="text-muted-foreground">Stok : {stock}</p>
+        </div>
+      </Link>
       <div>
         <div className="flex items-center justify-between">
           <Button

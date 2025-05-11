@@ -1,6 +1,11 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ProductCard } from "../components/ProductCard";
+import axios from "axios";
+import { Button } from "@/components/ui/button";
+import { axiosInstance } from "@/lib/axios";
+import { useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const productRow = [
   {
@@ -55,9 +60,12 @@ const productRow = [
 ];
 
 const HomePage = () => {
-  const products = productRow.map((data) => {
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(false);
+  const productsList = products.map((data) => {
     return (
       <ProductCard
+        id={data.id}
         key={data.id}
         name={data.name}
         price={data.price}
@@ -66,6 +74,23 @@ const HomePage = () => {
       />
     );
   });
+
+  const fetchProduct = async () => {
+    setLoadingProducts(true);
+    try {
+      const response = await axiosInstance.get("/products");
+      console.log(response.data);
+      setProducts(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoadingProducts(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
   return (
     <>
       <main className="min-h-[84vh] max-w-screen-xl mx-auto px-4 mt-32">
@@ -78,7 +103,11 @@ const HomePage = () => {
             illum!
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">{products}</div>
+        {loadingProducts ? (
+          <Skeleton className="w-full h-[582px]" />
+        ) : (
+          <div className="grid grid-cols-4 gap-5">{productsList}</div>
+        )}
       </main>
     </>
   );

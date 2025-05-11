@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 border-b px-28 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400">
+    <header className="top-0 left-0 right-0 z-50 flex items-center justify-between h-16 border-b px-28 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400">
       {/* BRAND */}
       <Link to="/">
         <div className="flex items-center justify-start animate-bounce">
@@ -46,12 +46,14 @@ export const Header = () => {
         </div>
 
         <div className="flex space-x-2">
-          <Button
-            variant="outline"
-            className="font-bold transition duration-500 ease-in-out text-sky-500 hover:-translate-x-1"
-          >
-            Login
-          </Button>
+          <Link to="/login">
+            <Button
+              variant="outline"
+              className="font-bold transition duration-500 ease-in-out text-sky-500 hover:-translate-x-1"
+            >
+              Login
+            </Button>
+          </Link>
           <Button
             variant="outline"
             className="font-bold transition duration-500 ease-in-out text-sky-500 hover:-translate-x-1"
